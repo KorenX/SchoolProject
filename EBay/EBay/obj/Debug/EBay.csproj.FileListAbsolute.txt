@@ -47,3 +47,4 @@ F:\EBay\EBay\obj\Debug\EBay.Branches.resources
 F:\EBay\EBay\obj\Debug\EBay.Category.resources
 F:\EBay\EBay\obj\Debug\EBay.Countries.resources
 F:\EBay\EBay\obj\Debug\EBay.Deals.resources
+F:\EBay\EBay\obj\Debug\EBay.ImportProcess.resources

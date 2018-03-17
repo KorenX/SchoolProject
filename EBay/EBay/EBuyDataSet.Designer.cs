@@ -3101,6 +3101,8 @@ namespace EBay {
             
             private global::System.Data.DataColumn columnItemPic;
             
+            private global::System.Data.DataColumn columnItemWanted;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ItemsDataTable() {
@@ -3208,6 +3210,14 @@ namespace EBay {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ItemWantedColumn {
+                get {
+                    return this.columnItemWanted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3243,7 +3253,7 @@ namespace EBay {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ItemsRow AddItemsRow(int ItemID, string ItemName, string ItemDiscription, CategoriesRow parentCategoriesRowByCategoriesItems, CreatorsRow parentCreatorsRowByCreatorsItems, ImportersRow parentImportersRowByImportersItems, int ItemCost, int ItemQuantity, string ItemPic) {
+            public ItemsRow AddItemsRow(int ItemID, string ItemName, string ItemDiscription, CategoriesRow parentCategoriesRowByCategoriesItems, CreatorsRow parentCreatorsRowByCreatorsItems, ImportersRow parentImportersRowByImportersItems, int ItemCost, int ItemQuantity, string ItemPic, int ItemWanted) {
                 ItemsRow rowItemsRow = ((ItemsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemID,
@@ -3254,7 +3264,8 @@ namespace EBay {
                         null,
                         ItemCost,
                         ItemQuantity,
-                        ItemPic};
+                        ItemPic,
+                        ItemWanted};
                 if ((parentCategoriesRowByCategoriesItems != null)) {
                     columnValuesArray[3] = parentCategoriesRowByCategoriesItems[0];
                 }
@@ -3302,6 +3313,7 @@ namespace EBay {
                 this.columnItemCost = base.Columns["ItemCost"];
                 this.columnItemQuantity = base.Columns["ItemQuantity"];
                 this.columnItemPic = base.Columns["ItemPic"];
+                this.columnItemWanted = base.Columns["ItemWanted"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3325,6 +3337,8 @@ namespace EBay {
                 base.Columns.Add(this.columnItemQuantity);
                 this.columnItemPic = new global::System.Data.DataColumn("ItemPic", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnItemPic);
+                this.columnItemWanted = new global::System.Data.DataColumn("ItemWanted", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItemWanted);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnItemID}, true));
                 this.columnItemID.AllowDBNull = false;
@@ -4927,6 +4941,22 @@ namespace EBay {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int ItemWanted {
+                get {
+                    try {
+                        return ((int)(this[this.tableItems.ItemWantedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ItemWanted\' in table \'Items\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableItems.ItemWantedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public CategoriesRow CategoriesRow {
                 get {
                     return ((CategoriesRow)(this.GetParentRow(this.Table.ParentRelations["CategoriesItems"])));
@@ -5052,6 +5082,18 @@ namespace EBay {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetItemPicNull() {
                 this[this.tableItems.ItemPicColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsItemWantedNull() {
+                return this.IsNull(this.tableItems.ItemWantedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetItemWantedNull() {
+                this[this.tableItems.ItemWantedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8935,10 +8977,11 @@ namespace EBay.EBuyDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("ItemCost", "ItemCost");
             tableMapping.ColumnMappings.Add("ItemQuantity", "ItemQuantity");
             tableMapping.ColumnMappings.Add("ItemPic", "ItemPic");
+            tableMapping.ColumnMappings.Add("ItemWanted", "ItemWanted");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Items` WHERE ((`ItemID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemDiscription` IS NULL) OR (`ItemDiscription` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `CreatorID` IS NULL) OR (`CreatorID` = ?)) AND ((? = 1 AND `ImportID` IS NULL) OR (`ImportID` = ?)) AND ((? = 1 AND `ItemCost` IS NULL) OR (`ItemCost` = ?)) AND ((? = 1 AND `ItemQuantity` IS NULL) OR (`ItemQuantity` = ?)) AND ((? = 1 AND `ItemPic` IS NULL) OR (`ItemPic` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Items` WHERE ((`ItemID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemDiscription` IS NULL) OR (`ItemDiscription` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `CreatorID` IS NULL) OR (`CreatorID` = ?)) AND ((? = 1 AND `ImportID` IS NULL) OR (`ImportID` = ?)) AND ((? = 1 AND `ItemCost` IS NULL) OR (`ItemCost` = ?)) AND ((? = 1 AND `ItemQuantity` IS NULL) OR (`ItemQuantity` = ?)) AND ((? = 1 AND `ItemWanted` IS NULL) OR (`ItemWanted` = ?)) AND ((? = 1 AND `ItemPic` IS NULL) OR (`ItemPic` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemName", global::System.Data.DataRowVersion.Original, true, null));
@@ -8955,13 +8998,15 @@ namespace EBay.EBuyDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemCost", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemPic", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemPic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Items` (`ItemID`, `ItemName`, `ItemDiscription`, `Category`, `Creato" +
-                "rID`, `ImportID`, `ItemCost`, `ItemQuantity`, `ItemPic`) VALUES (?, ?, ?, ?, ?, " +
-                "?, ?, ?, ?)";
+                "rID`, `ImportID`, `ItemCost`, `ItemQuantity`, `ItemWanted`, `ItemPic`) VALUES (?" +
+                ", ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemName", global::System.Data.DataRowVersion.Current, false, null));
@@ -8971,10 +9016,11 @@ namespace EBay.EBuyDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ImportID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImportID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemCost", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemPic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Items` SET `ItemID` = ?, `ItemName` = ?, `ItemDiscription` = ?, `Category` = ?, `CreatorID` = ?, `ImportID` = ?, `ItemCost` = ?, `ItemQuantity` = ?, `ItemPic` = ? WHERE ((`ItemID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemDiscription` IS NULL) OR (`ItemDiscription` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `CreatorID` IS NULL) OR (`CreatorID` = ?)) AND ((? = 1 AND `ImportID` IS NULL) OR (`ImportID` = ?)) AND ((? = 1 AND `ItemCost` IS NULL) OR (`ItemCost` = ?)) AND ((? = 1 AND `ItemQuantity` IS NULL) OR (`ItemQuantity` = ?)) AND ((? = 1 AND `ItemPic` IS NULL) OR (`ItemPic` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Items` SET `ItemID` = ?, `ItemName` = ?, `ItemDiscription` = ?, `Category` = ?, `CreatorID` = ?, `ImportID` = ?, `ItemCost` = ?, `ItemQuantity` = ?, `ItemWanted` = ?, `ItemPic` = ? WHERE ((`ItemID` = ?) AND ((? = 1 AND `ItemName` IS NULL) OR (`ItemName` = ?)) AND ((? = 1 AND `ItemDiscription` IS NULL) OR (`ItemDiscription` = ?)) AND ((? = 1 AND `Category` IS NULL) OR (`Category` = ?)) AND ((? = 1 AND `CreatorID` IS NULL) OR (`CreatorID` = ?)) AND ((? = 1 AND `ImportID` IS NULL) OR (`ImportID` = ?)) AND ((? = 1 AND `ItemCost` IS NULL) OR (`ItemCost` = ?)) AND ((? = 1 AND `ItemQuantity` IS NULL) OR (`ItemQuantity` = ?)) AND ((? = 1 AND `ItemWanted` IS NULL) OR (`ItemWanted` = ?)) AND ((? = 1 AND `ItemPic` IS NULL) OR (`ItemPic` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemName", global::System.Data.DataRowVersion.Current, false, null));
@@ -8984,6 +9030,7 @@ namespace EBay.EBuyDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ImportID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ImportID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemCost", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ItemPic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemName", global::System.Data.DataRowVersion.Original, true, null));
@@ -9000,6 +9047,8 @@ namespace EBay.EBuyDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemCost", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemCost", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemQuantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemQuantity", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemWanted", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemWanted", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ItemPic", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ItemPic", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ItemPic", global::System.Data.DataRowVersion.Original, false, null));
         }
@@ -9018,7 +9067,7 @@ namespace EBay.EBuyDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ItemID, ItemName, ItemDiscription, Category, CreatorID, ImportID, ItemCost" +
-                ", ItemQuantity, ItemPic FROM Items";
+                ", ItemQuantity,ItemWanted, ItemPic FROM Items";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9079,7 +9128,7 @@ namespace EBay.EBuyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> Original_ItemID, string Original_ItemName, string Original_ItemDiscription, string Original_Category, global::System.Nullable<int> Original_CreatorID, global::System.Nullable<int> Original_ImportID, global::System.Nullable<int> Original_ItemCost, global::System.Nullable<int> Original_ItemQuantity, string Original_ItemPic) {
+        public virtual int Delete(global::System.Nullable<int> Original_ItemID, string Original_ItemName, string Original_ItemDiscription, string Original_Category, global::System.Nullable<int> Original_CreatorID, global::System.Nullable<int> Original_ImportID, global::System.Nullable<int> Original_ItemCost, global::System.Nullable<int> Original_ItemQuantity, global::System.Nullable<int> Original_ItemWanted, string Original_ItemPic) {
             if ((Original_ItemID.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ItemID.Value));
             }
@@ -9142,13 +9191,21 @@ namespace EBay.EBuyDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_ItemPic == null)) {
+            if ((Original_ItemWanted.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_ItemWanted.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
+            if ((Original_ItemPic == null)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_ItemPic));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_ItemPic));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9170,7 +9227,7 @@ namespace EBay.EBuyDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> ItemID, string ItemName, string ItemDiscription, string Category, global::System.Nullable<int> CreatorID, global::System.Nullable<int> ImportID, global::System.Nullable<int> ItemCost, global::System.Nullable<int> ItemQuantity, string ItemPic) {
+        public virtual int Insert(global::System.Nullable<int> ItemID, string ItemName, string ItemDiscription, string Category, global::System.Nullable<int> CreatorID, global::System.Nullable<int> ImportID, global::System.Nullable<int> ItemCost, global::System.Nullable<int> ItemQuantity, global::System.Nullable<int> ItemWanted, string ItemPic) {
             if ((ItemID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ItemID.Value));
             }
@@ -9219,11 +9276,17 @@ namespace EBay.EBuyDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ItemPic == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            if ((ItemWanted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(ItemWanted.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(ItemPic));
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((ItemPic == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(ItemPic));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9254,6 +9317,7 @@ namespace EBay.EBuyDataSetTableAdapters {
                     global::System.Nullable<int> ImportID, 
                     global::System.Nullable<int> ItemCost, 
                     global::System.Nullable<int> ItemQuantity, 
+                    global::System.Nullable<int> ItemWanted, 
                     string ItemPic, 
                     global::System.Nullable<int> Original_ItemID, 
                     string Original_ItemName, 
@@ -9263,6 +9327,7 @@ namespace EBay.EBuyDataSetTableAdapters {
                     global::System.Nullable<int> Original_ImportID, 
                     global::System.Nullable<int> Original_ItemCost, 
                     global::System.Nullable<int> Original_ItemQuantity, 
+                    global::System.Nullable<int> Original_ItemWanted, 
                     string Original_ItemPic) {
             if ((ItemID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ItemID.Value));
@@ -9312,81 +9377,95 @@ namespace EBay.EBuyDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((ItemPic == null)) {
+            if ((ItemWanted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ItemWanted.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(ItemPic));
-            }
-            if ((Original_ItemID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ItemID.Value));
-            }
-            else {
+            if ((ItemPic == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_ItemName == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(ItemPic));
+            }
+            if ((Original_ItemID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ItemID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ItemName));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ItemName == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ItemName));
             }
             if ((Original_ItemDiscription == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_ItemDiscription));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_ItemDiscription));
             }
             if ((Original_Category == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Category));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Category));
             }
             if ((Original_CreatorID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_CreatorID.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_CreatorID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_ImportID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ImportID.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_ImportID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_ItemCost.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_ItemCost.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_ItemCost.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_ItemQuantity.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_ItemQuantity.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_ItemQuantity.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ItemWanted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(Original_ItemWanted.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_ItemPic == null)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_ItemPic));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_ItemPic));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9416,6 +9495,7 @@ namespace EBay.EBuyDataSetTableAdapters {
                     global::System.Nullable<int> ImportID, 
                     global::System.Nullable<int> ItemCost, 
                     global::System.Nullable<int> ItemQuantity, 
+                    global::System.Nullable<int> ItemWanted, 
                     string ItemPic, 
                     global::System.Nullable<int> Original_ItemID, 
                     string Original_ItemName, 
@@ -9425,8 +9505,9 @@ namespace EBay.EBuyDataSetTableAdapters {
                     global::System.Nullable<int> Original_ImportID, 
                     global::System.Nullable<int> Original_ItemCost, 
                     global::System.Nullable<int> Original_ItemQuantity, 
+                    global::System.Nullable<int> Original_ItemWanted, 
                     string Original_ItemPic) {
-            return this.Update(Original_ItemID, ItemName, ItemDiscription, Category, CreatorID, ImportID, ItemCost, ItemQuantity, ItemPic, Original_ItemID, Original_ItemName, Original_ItemDiscription, Original_Category, Original_CreatorID, Original_ImportID, Original_ItemCost, Original_ItemQuantity, Original_ItemPic);
+            return this.Update(Original_ItemID, ItemName, ItemDiscription, Category, CreatorID, ImportID, ItemCost, ItemQuantity, ItemWanted, ItemPic, Original_ItemID, Original_ItemName, Original_ItemDiscription, Original_Category, Original_CreatorID, Original_ImportID, Original_ItemCost, Original_ItemQuantity, Original_ItemWanted, Original_ItemPic);
         }
     }
     

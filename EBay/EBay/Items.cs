@@ -27,6 +27,8 @@ namespace EBay
 
         private void Items_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eBuyDataSet.Deal' table. You can move, or remove it, as needed.
+            this.dealTableAdapter.Fill(this.eBuyDataSet.Deal);
             // TODO: This line of code loads data into the 'eBuyDataSet.Importers' table. You can move, or remove it, as needed.
             this.importersTableAdapter.Fill(this.eBuyDataSet.Importers);
             // TODO: This line of code loads data into the 'eBuyDataSet.Creators' table. You can move, or remove it, as needed.
@@ -63,6 +65,7 @@ namespace EBay
             itemDiscriptionTextBox.KeyPress += Helper.CheckNameNumberWord;
             itemCostTextBox.KeyPress += Helper.CheckNumber;
             itemQuantityTextBox.KeyPress += Helper.CheckNumber;
+            itemWantedTextBox.KeyPress += Helper.CheckNumber;
 
         }
 

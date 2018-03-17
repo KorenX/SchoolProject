@@ -41,10 +41,7 @@
             System.Windows.Forms.Label categoryLabel1;
             System.Windows.Forms.Label creatorIDLabel1;
             System.Windows.Forms.Label importIDLabel1;
-            this.eBuyDataSet = new EBay.EBuyDataSet();
-            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemsTableAdapter = new EBay.EBuyDataSetTableAdapters.ItemsTableAdapter();
-            this.tableAdapterManager = new EBay.EBuyDataSetTableAdapters.TableAdapterManager();
+            System.Windows.Forms.Label itemWantedLabel;
             this.itemIDTextBox = new System.Windows.Forms.TextBox();
             this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.itemDiscriptionTextBox = new System.Windows.Forms.TextBox();
@@ -72,34 +69,42 @@
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.creatorIDComboBox = new System.Windows.Forms.ComboBox();
             this.importIDComboBox = new System.Windows.Forms.ComboBox();
-            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriesTableAdapter = new EBay.EBuyDataSetTableAdapters.CategoriesTableAdapter();
             this.categoriesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.creatorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.creatorsTableAdapter = new EBay.EBuyDataSetTableAdapters.CreatorsTableAdapter();
             this.itemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatorsDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.importersTableAdapter = new EBay.EBuyDataSetTableAdapters.ImportersTableAdapter();
             this.importersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eBuyDataSet = new EBay.EBuyDataSet();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemsTableAdapter = new EBay.EBuyDataSetTableAdapters.ItemsTableAdapter();
+            this.tableAdapterManager = new EBay.EBuyDataSetTableAdapters.TableAdapterManager();
+            this.categoriesTableAdapter = new EBay.EBuyDataSetTableAdapters.CategoriesTableAdapter();
+            this.creatorsTableAdapter = new EBay.EBuyDataSetTableAdapters.CreatorsTableAdapter();
+            this.importersTableAdapter = new EBay.EBuyDataSetTableAdapters.ImportersTableAdapter();
+            this.dealBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dealTableAdapter = new EBay.EBuyDataSetTableAdapters.DealTableAdapter();
+            this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDiscriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemWantedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemPicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemWantedTextBox = new System.Windows.Forms.TextBox();
             itemIDLabel = new System.Windows.Forms.Label();
             itemNameLabel = new System.Windows.Forms.Label();
             itemDiscriptionLabel = new System.Windows.Forms.Label();
@@ -112,15 +117,17 @@
             categoryLabel1 = new System.Windows.Forms.Label();
             creatorIDLabel1 = new System.Windows.Forms.Label();
             importIDLabel1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            itemWantedLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.importersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.importersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // itemIDLabel
@@ -198,7 +205,7 @@
             // itemPicLabel
             // 
             itemPicLabel.AutoSize = true;
-            itemPicLabel.Location = new System.Drawing.Point(33, 217);
+            itemPicLabel.Location = new System.Drawing.Point(33, 238);
             itemPicLabel.Name = "itemPicLabel";
             itemPicLabel.Size = new System.Drawing.Size(48, 13);
             itemPicLabel.TabIndex = 17;
@@ -230,34 +237,6 @@
             importIDLabel1.Size = new System.Drawing.Size(53, 13);
             importIDLabel1.TabIndex = 38;
             importIDLabel1.Text = "Import ID:";
-            // 
-            // eBuyDataSet
-            // 
-            this.eBuyDataSet.DataSetName = "EBuyDataSet";
-            this.eBuyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // itemsBindingSource
-            // 
-            this.itemsBindingSource.DataMember = "Items";
-            this.itemsBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // itemsTableAdapter
-            // 
-            this.itemsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BranchesTableAdapter = null;
-            this.tableAdapterManager.BuyersTableAdapter = null;
-            this.tableAdapterManager.CategoriesTableAdapter = null;
-            this.tableAdapterManager.CountriesTableAdapter = null;
-            this.tableAdapterManager.CreatorsTableAdapter = null;
-            this.tableAdapterManager.DealItemsTableAdapter = null;
-            this.tableAdapterManager.DealTableAdapter = null;
-            this.tableAdapterManager.ImportersTableAdapter = null;
-            this.tableAdapterManager.ItemsTableAdapter = this.itemsTableAdapter;
-            this.tableAdapterManager.UpdateOrder = EBay.EBuyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // itemIDTextBox
             // 
@@ -327,7 +306,7 @@
             // itemPicTextBox
             // 
             this.itemPicTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsBindingSource, "ItemPic", true));
-            this.itemPicTextBox.Location = new System.Drawing.Point(121, 214);
+            this.itemPicTextBox.Location = new System.Drawing.Point(121, 235);
             this.itemPicTextBox.Name = "itemPicTextBox";
             this.itemPicTextBox.Size = new System.Drawing.Size(100, 20);
             this.itemPicTextBox.TabIndex = 18;
@@ -502,15 +481,6 @@
             this.importIDComboBox.Size = new System.Drawing.Size(121, 21);
             this.importIDComboBox.TabIndex = 39;
             // 
-            // categoriesBindingSource
-            // 
-            this.categoriesBindingSource.DataMember = "Categories";
-            this.categoriesBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // categoriesTableAdapter
-            // 
-            this.categoriesTableAdapter.ClearBeforeFill = true;
-            // 
             // categoriesDataGridView
             // 
             this.categoriesDataGridView.AutoGenerateColumns = false;
@@ -524,94 +494,26 @@
             this.categoriesDataGridView.TabIndex = 40;
             this.categoriesDataGridView.Visible = false;
             // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "CategoryName";
-            this.dataGridViewTextBoxColumn10.HeaderText = "CategoryName";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // creatorsBindingSource
-            // 
-            this.creatorsBindingSource.DataMember = "Creators";
-            this.creatorsBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // creatorsTableAdapter
-            // 
-            this.creatorsTableAdapter.ClearBeforeFill = true;
-            // 
             // itemsDataGridView
             // 
             this.itemsDataGridView.AutoGenerateColumns = false;
             this.itemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.itemIDDataGridViewTextBoxColumn,
+            this.itemNameDataGridViewTextBoxColumn,
+            this.itemDiscriptionDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn,
+            this.creatorIDDataGridViewTextBoxColumn,
+            this.importIDDataGridViewTextBoxColumn,
+            this.itemCostDataGridViewTextBoxColumn,
+            this.itemQuantityDataGridViewTextBoxColumn,
+            this.itemWantedDataGridViewTextBoxColumn,
+            this.itemPicDataGridViewTextBoxColumn});
             this.itemsDataGridView.DataSource = this.itemsBindingSource;
-            this.itemsDataGridView.Location = new System.Drawing.Point(12, 240);
+            this.itemsDataGridView.Location = new System.Drawing.Point(12, 292);
             this.itemsDataGridView.Name = "itemsDataGridView";
             this.itemsDataGridView.Size = new System.Drawing.Size(1036, 282);
             this.itemsDataGridView.TabIndex = 40;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ItemID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ItemID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "ItemName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ItemDiscription";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ItemDiscription";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CreatorID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "CreatorID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ImportID";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ImportID";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ItemCost";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ItemCost";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "ItemQuantity";
-            this.dataGridViewTextBoxColumn8.HeaderText = "ItemQuantity";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ItemPic";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ItemPic";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // creatorsDataGridView
             // 
@@ -627,33 +529,6 @@
             this.creatorsDataGridView.Size = new System.Drawing.Size(300, 220);
             this.creatorsDataGridView.TabIndex = 41;
             this.creatorsDataGridView.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CreatorID";
-            this.dataGridViewTextBoxColumn11.HeaderText = "CreatorID";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatorName";
-            this.dataGridViewTextBoxColumn12.HeaderText = "CreatorName";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "CreatorCountry";
-            this.dataGridViewTextBoxColumn13.HeaderText = "CreatorCountry";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // importersBindingSource
-            // 
-            this.importersBindingSource.DataMember = "Importers";
-            this.importersBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // importersTableAdapter
-            // 
-            this.importersTableAdapter.ClearBeforeFill = true;
             // 
             // importersDataGridView
             // 
@@ -702,12 +577,180 @@
             this.dataGridViewTextBoxColumn18.HeaderText = "ImportMail";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             // 
+            // importersBindingSource
+            // 
+            this.importersBindingSource.DataMember = "Importers";
+            this.importersBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // eBuyDataSet
+            // 
+            this.eBuyDataSet.DataSetName = "EBuyDataSet";
+            this.eBuyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CreatorID";
+            this.dataGridViewTextBoxColumn11.HeaderText = "CreatorID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "CreatorName";
+            this.dataGridViewTextBoxColumn12.HeaderText = "CreatorName";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "CreatorCountry";
+            this.dataGridViewTextBoxColumn13.HeaderText = "CreatorCountry";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // creatorsBindingSource
+            // 
+            this.creatorsBindingSource.DataMember = "Creators";
+            this.creatorsBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // itemsBindingSource
+            // 
+            this.itemsBindingSource.DataMember = "Items";
+            this.itemsBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "CategoryName";
+            this.dataGridViewTextBoxColumn10.HeaderText = "CategoryName";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // categoriesBindingSource
+            // 
+            this.categoriesBindingSource.DataMember = "Categories";
+            this.categoriesBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // itemsTableAdapter
+            // 
+            this.itemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BranchesTableAdapter = null;
+            this.tableAdapterManager.BuyersTableAdapter = null;
+            this.tableAdapterManager.CategoriesTableAdapter = null;
+            this.tableAdapterManager.CountriesTableAdapter = null;
+            this.tableAdapterManager.CreatorsTableAdapter = null;
+            this.tableAdapterManager.DealItemsTableAdapter = null;
+            this.tableAdapterManager.DealTableAdapter = null;
+            this.tableAdapterManager.ImportersTableAdapter = null;
+            this.tableAdapterManager.ItemsTableAdapter = this.itemsTableAdapter;
+            this.tableAdapterManager.SendersTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = EBay.EBuyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // categoriesTableAdapter
+            // 
+            this.categoriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // creatorsTableAdapter
+            // 
+            this.creatorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // importersTableAdapter
+            // 
+            this.importersTableAdapter.ClearBeforeFill = true;
+            // 
+            // dealBindingSource
+            // 
+            this.dealBindingSource.DataMember = "Deal";
+            this.dealBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // dealTableAdapter
+            // 
+            this.dealTableAdapter.ClearBeforeFill = true;
+            // 
+            // itemIDDataGridViewTextBoxColumn
+            // 
+            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            // 
+            // itemDiscriptionDataGridViewTextBoxColumn
+            // 
+            this.itemDiscriptionDataGridViewTextBoxColumn.DataPropertyName = "ItemDiscription";
+            this.itemDiscriptionDataGridViewTextBoxColumn.HeaderText = "ItemDiscription";
+            this.itemDiscriptionDataGridViewTextBoxColumn.Name = "itemDiscriptionDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            // 
+            // creatorIDDataGridViewTextBoxColumn
+            // 
+            this.creatorIDDataGridViewTextBoxColumn.DataPropertyName = "CreatorID";
+            this.creatorIDDataGridViewTextBoxColumn.HeaderText = "CreatorID";
+            this.creatorIDDataGridViewTextBoxColumn.Name = "creatorIDDataGridViewTextBoxColumn";
+            // 
+            // importIDDataGridViewTextBoxColumn
+            // 
+            this.importIDDataGridViewTextBoxColumn.DataPropertyName = "ImportID";
+            this.importIDDataGridViewTextBoxColumn.HeaderText = "ImportID";
+            this.importIDDataGridViewTextBoxColumn.Name = "importIDDataGridViewTextBoxColumn";
+            // 
+            // itemCostDataGridViewTextBoxColumn
+            // 
+            this.itemCostDataGridViewTextBoxColumn.DataPropertyName = "ItemCost";
+            this.itemCostDataGridViewTextBoxColumn.HeaderText = "ItemCost";
+            this.itemCostDataGridViewTextBoxColumn.Name = "itemCostDataGridViewTextBoxColumn";
+            // 
+            // itemQuantityDataGridViewTextBoxColumn
+            // 
+            this.itemQuantityDataGridViewTextBoxColumn.DataPropertyName = "ItemQuantity";
+            this.itemQuantityDataGridViewTextBoxColumn.HeaderText = "ItemQuantity";
+            this.itemQuantityDataGridViewTextBoxColumn.Name = "itemQuantityDataGridViewTextBoxColumn";
+            // 
+            // itemWantedDataGridViewTextBoxColumn
+            // 
+            this.itemWantedDataGridViewTextBoxColumn.DataPropertyName = "ItemWanted";
+            this.itemWantedDataGridViewTextBoxColumn.HeaderText = "ItemWanted";
+            this.itemWantedDataGridViewTextBoxColumn.Name = "itemWantedDataGridViewTextBoxColumn";
+            // 
+            // itemPicDataGridViewTextBoxColumn
+            // 
+            this.itemPicDataGridViewTextBoxColumn.DataPropertyName = "ItemPic";
+            this.itemPicDataGridViewTextBoxColumn.HeaderText = "ItemPic";
+            this.itemPicDataGridViewTextBoxColumn.Name = "itemPicDataGridViewTextBoxColumn";
+            // 
+            // itemWantedLabel
+            // 
+            itemWantedLabel.AutoSize = true;
+            itemWantedLabel.Location = new System.Drawing.Point(33, 214);
+            itemWantedLabel.Name = "itemWantedLabel";
+            itemWantedLabel.Size = new System.Drawing.Size(71, 13);
+            itemWantedLabel.TabIndex = 43;
+            itemWantedLabel.Text = "Item Wanted:";
+            // 
+            // itemWantedTextBox
+            // 
+            this.itemWantedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.itemsBindingSource, "ItemWanted", true));
+            this.itemWantedTextBox.Location = new System.Drawing.Point(121, 211);
+            this.itemWantedTextBox.Name = "itemWantedTextBox";
+            this.itemWantedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.itemWantedTextBox.TabIndex = 44;
+            // 
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1276, 694);
+            this.Controls.Add(itemWantedLabel);
+            this.Controls.Add(this.itemWantedTextBox);
             this.Controls.Add(this.importersDataGridView);
             this.Controls.Add(this.creatorsDataGridView);
             this.Controls.Add(this.itemsDataGridView);
@@ -754,15 +797,16 @@
             this.Name = "Items";
             this.Text = "Items";
             this.Load += new System.EventHandler(this.Items_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.importersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.importersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -808,15 +852,6 @@
         private System.Windows.Forms.BindingSource creatorsBindingSource;
         private EBuyDataSetTableAdapters.CreatorsTableAdapter creatorsTableAdapter;
         private System.Windows.Forms.DataGridView itemsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridView creatorsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -829,5 +864,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.BindingSource dealBindingSource;
+        private EBuyDataSetTableAdapters.DealTableAdapter dealTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemDiscriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatorIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemCostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemWantedDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemPicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox itemWantedTextBox;
     }
 }

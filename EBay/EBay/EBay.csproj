@@ -88,6 +88,9 @@
     <Compile Include="Deals.Designer.cs">
       <DependentUpon>Deals.cs</DependentUpon>
     </Compile>
+    <Compile Include="EBuyDataSet.cs">
+      <DependentUpon>EBuyDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EBuyDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,6 +107,12 @@
     </Compile>
     <Compile Include="Importers.Designer.cs">
       <DependentUpon>Importers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportProcess.Designer.cs">
+      <DependentUpon>ImportProcess.cs</DependentUpon>
     </Compile>
     <Compile Include="Items.cs">
       <SubType>Form</SubType>
@@ -145,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Importers.resx">
       <DependentUpon>Importers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportProcess.resx">
+      <DependentUpon>ImportProcess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items.resx">
       <DependentUpon>Items.cs</DependentUpon>
