@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Branches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Branches.Designer.cs">
+      <DependentUpon>Branches.cs</DependentUpon>
+    </Compile>
     <Compile Include="Buyers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,11 +63,30 @@
     <Compile Include="BuyProcess.Designer.cs">
       <DependentUpon>BuyProcess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Countries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Countries.Designer.cs">
+      <DependentUpon>Countries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Creators.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Creators.Designer.cs">
       <DependentUpon>Creators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Deals.Designer.cs">
+      <DependentUpon>Deals.cs</DependentUpon>
     </Compile>
     <Compile Include="EBuyDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -73,6 +98,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Importers.Designer.cs">
+      <DependentUpon>Importers.cs</DependentUpon>
     </Compile>
     <Compile Include="Items.cs">
       <SubType>Form</SubType>
@@ -88,17 +119,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Branches.resx">
+      <DependentUpon>Branches.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Buyers.resx">
       <DependentUpon>Buyers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BuyProcess.resx">
       <DependentUpon>BuyProcess.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Countries.resx">
+      <DependentUpon>Countries.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Creators.resx">
       <DependentUpon>Creators.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Deals.resx">
+      <DependentUpon>Deals.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Importers.resx">
+      <DependentUpon>Importers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items.resx">
       <DependentUpon>Items.cs</DependentUpon>

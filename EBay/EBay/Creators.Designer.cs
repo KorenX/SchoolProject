@@ -32,6 +32,7 @@
             System.Windows.Forms.Label creatorIDLabel;
             System.Windows.Forms.Label creatorNameLabel;
             System.Windows.Forms.Label creatorCountryLabel;
+            System.Windows.Forms.Label creatorCountryLabel1;
             this.eBuyDataSet = new EBay.EBuyDataSet();
             this.creatorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.creatorsTableAdapter = new EBay.EBuyDataSetTableAdapters.CreatorsTableAdapter();
@@ -58,13 +59,48 @@
             this.button12 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.creatorCountryComboBox = new System.Windows.Forms.ComboBox();
+            this.countriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.countriesTableAdapter = new EBay.EBuyDataSetTableAdapters.CountriesTableAdapter();
+            this.countriesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             creatorIDLabel = new System.Windows.Forms.Label();
             creatorNameLabel = new System.Windows.Forms.Label();
             creatorCountryLabel = new System.Windows.Forms.Label();
+            creatorCountryLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // creatorIDLabel
+            // 
+            creatorIDLabel.AutoSize = true;
+            creatorIDLabel.Location = new System.Drawing.Point(83, 23);
+            creatorIDLabel.Name = "creatorIDLabel";
+            creatorIDLabel.Size = new System.Drawing.Size(58, 13);
+            creatorIDLabel.TabIndex = 1;
+            creatorIDLabel.Text = "Creator ID:";
+            // 
+            // creatorNameLabel
+            // 
+            creatorNameLabel.AutoSize = true;
+            creatorNameLabel.Location = new System.Drawing.Point(83, 49);
+            creatorNameLabel.Name = "creatorNameLabel";
+            creatorNameLabel.Size = new System.Drawing.Size(75, 13);
+            creatorNameLabel.TabIndex = 3;
+            creatorNameLabel.Text = "Creator Name:";
+            // 
+            // creatorCountryLabel
+            // 
+            creatorCountryLabel.AutoSize = true;
+            creatorCountryLabel.Location = new System.Drawing.Point(644, 439);
+            creatorCountryLabel.Name = "creatorCountryLabel";
+            creatorCountryLabel.Size = new System.Drawing.Size(83, 13);
+            creatorCountryLabel.TabIndex = 5;
+            creatorCountryLabel.Text = "Creator Country:";
             // 
             // eBuyDataSet
             // 
@@ -126,15 +162,6 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "CreatorCountry";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // creatorIDLabel
-            // 
-            creatorIDLabel.AutoSize = true;
-            creatorIDLabel.Location = new System.Drawing.Point(83, 23);
-            creatorIDLabel.Name = "creatorIDLabel";
-            creatorIDLabel.Size = new System.Drawing.Size(58, 13);
-            creatorIDLabel.TabIndex = 1;
-            creatorIDLabel.Text = "Creator ID:";
-            // 
             // creatorIDTextBox
             // 
             this.creatorIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.creatorsBindingSource, "CreatorID", true));
@@ -144,15 +171,6 @@
             this.creatorIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.creatorIDTextBox.TabIndex = 2;
             // 
-            // creatorNameLabel
-            // 
-            creatorNameLabel.AutoSize = true;
-            creatorNameLabel.Location = new System.Drawing.Point(83, 49);
-            creatorNameLabel.Name = "creatorNameLabel";
-            creatorNameLabel.Size = new System.Drawing.Size(75, 13);
-            creatorNameLabel.TabIndex = 3;
-            creatorNameLabel.Text = "Creator Name:";
-            // 
             // creatorNameTextBox
             // 
             this.creatorNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.creatorsBindingSource, "CreatorName", true));
@@ -161,19 +179,10 @@
             this.creatorNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.creatorNameTextBox.TabIndex = 4;
             // 
-            // creatorCountryLabel
-            // 
-            creatorCountryLabel.AutoSize = true;
-            creatorCountryLabel.Location = new System.Drawing.Point(83, 75);
-            creatorCountryLabel.Name = "creatorCountryLabel";
-            creatorCountryLabel.Size = new System.Drawing.Size(83, 13);
-            creatorCountryLabel.TabIndex = 5;
-            creatorCountryLabel.Text = "Creator Country:";
-            // 
             // creatorCountryTextBox
             // 
             this.creatorCountryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.creatorsBindingSource, "CreatorCountry", true));
-            this.creatorCountryTextBox.Location = new System.Drawing.Point(172, 72);
+            this.creatorCountryTextBox.Location = new System.Drawing.Point(733, 436);
             this.creatorCountryTextBox.Name = "creatorCountryTextBox";
             this.creatorCountryTextBox.Size = new System.Drawing.Size(100, 20);
             this.creatorCountryTextBox.TabIndex = 6;
@@ -321,11 +330,60 @@
             this.label2.TabIndex = 36;
             this.label2.Text = "Search by Country";
             // 
+            // creatorCountryLabel1
+            // 
+            creatorCountryLabel1.AutoSize = true;
+            creatorCountryLabel1.Location = new System.Drawing.Point(83, 75);
+            creatorCountryLabel1.Name = "creatorCountryLabel1";
+            creatorCountryLabel1.Size = new System.Drawing.Size(83, 13);
+            creatorCountryLabel1.TabIndex = 36;
+            creatorCountryLabel1.Text = "Creator Country:";
+            // 
+            // creatorCountryComboBox
+            // 
+            this.creatorCountryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.creatorsBindingSource, "CreatorCountry", true));
+            this.creatorCountryComboBox.FormattingEnabled = true;
+            this.creatorCountryComboBox.Location = new System.Drawing.Point(172, 72);
+            this.creatorCountryComboBox.Name = "creatorCountryComboBox";
+            this.creatorCountryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.creatorCountryComboBox.TabIndex = 37;
+            // 
+            // countriesBindingSource
+            // 
+            this.countriesBindingSource.DataMember = "Countries";
+            this.countriesBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // countriesTableAdapter
+            // 
+            this.countriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // countriesDataGridView
+            // 
+            this.countriesDataGridView.AutoGenerateColumns = false;
+            this.countriesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.countriesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4});
+            this.countriesDataGridView.DataSource = this.countriesBindingSource;
+            this.countriesDataGridView.Location = new System.Drawing.Point(29, 418);
+            this.countriesDataGridView.Name = "countriesDataGridView";
+            this.countriesDataGridView.Size = new System.Drawing.Size(300, 220);
+            this.countriesDataGridView.TabIndex = 37;
+            this.countriesDataGridView.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "CountryName";
+            this.dataGridViewTextBoxColumn4.HeaderText = "CountryName";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
             // Creators
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(648, 461);
+            this.ClientSize = new System.Drawing.Size(649, 658);
+            this.Controls.Add(this.countriesDataGridView);
+            this.Controls.Add(creatorCountryLabel1);
+            this.Controls.Add(this.creatorCountryComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
@@ -354,6 +412,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.creatorsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.countriesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +447,10 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox creatorCountryComboBox;
+        private System.Windows.Forms.BindingSource countriesBindingSource;
+        private EBuyDataSetTableAdapters.CountriesTableAdapter countriesTableAdapter;
+        private System.Windows.Forms.DataGridView countriesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

@@ -27,9 +27,13 @@ namespace EBay
 
         private void Creators_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eBuyDataSet.Countries' table. You can move, or remove it, as needed.
+            this.countriesTableAdapter.Fill(this.eBuyDataSet.Countries);
             // TODO: This line of code loads data into the 'eBuyDataSet.Creators' table. You can move, or remove it, as needed.
             this.creatorsTableAdapter.Fill(this.eBuyDataSet.Creators);
 
+            for (int i = 0; i < countriesDataGridView.Rows.Count; i++)
+                creatorCountryComboBox.Items.Add(countriesDataGridView.Rows[i].Cells[0].Value);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,7 +79,8 @@ namespace EBay
 
         private void button8_Click(object sender, EventArgs e)
         {
-            
+            creatorNameTextBox.Text = "";
+            creatorCountryTextBox.Text = "";
         }
 
         private void button9_Click(object sender, EventArgs e)

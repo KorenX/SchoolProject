@@ -23,5 +23,16 @@ namespace EBay
 
         private void button3_Click(object sender, EventArgs e) => new Creators().ShowDialog();
 
+        private void button4_Click(object sender, EventArgs e) => new Importers().ShowDialog();
+
+        private void button5_Click(object sender, EventArgs e) => new Category().ShowDialog();
+
+        private void button6_Click(object sender, EventArgs e) => new Countries().ShowDialog();
+
+        private void button7_Click(object sender, EventArgs e) => new Branches().ShowDialog();
+
+        private void button8_Click(object sender, EventArgs e) => new Deals().ShowDialog();
+
+        
     }
 }

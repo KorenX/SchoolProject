@@ -29,7 +29,11 @@ namespace EBay
         {
             // TODO: This line of code loads data into the 'eBuyDataSet.Buyers' table. You can move, or remove it, as needed.
             this.buyersTableAdapter.Fill(this.eBuyDataSet.Buyers);
-            
+
+            buyerPhoneTextBox.KeyPress += Helper.CheckNumber;
+            buyerNameTextBox.KeyPress += Helper.CheckNameWord;
+            buyerAddressTextBox.KeyPress += Helper.CheckNameNumberWord;
+            buyerMailTextBox.KeyPress += Helper.CheckNameNumberWordMail;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +65,11 @@ namespace EBay
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (!Helper.CheckMail(buyerMailTextBox.Text))
+            {
+                MessageBox.Show("Mail doesn't fit the format");
+                return;
+            }
             buyersBindingSource.EndEdit();
             buyersTableAdapter.Update(this.eBuyDataSet.Buyers);
             button8.Enabled = false;

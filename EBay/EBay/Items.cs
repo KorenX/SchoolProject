@@ -27,8 +27,42 @@ namespace EBay
 
         private void Items_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eBuyDataSet.Importers' table. You can move, or remove it, as needed.
+            this.importersTableAdapter.Fill(this.eBuyDataSet.Importers);
+            // TODO: This line of code loads data into the 'eBuyDataSet.Creators' table. You can move, or remove it, as needed.
+            this.creatorsTableAdapter.Fill(this.eBuyDataSet.Creators);
+            // TODO: This line of code loads data into the 'eBuyDataSet.Categories' table. You can move, or remove it, as needed.
+            this.categoriesTableAdapter.Fill(this.eBuyDataSet.Categories);
             // TODO: This line of code loads data into the 'eBuyDataSet.Items' table. You can move, or remove it, as needed.
             this.itemsTableAdapter.Fill(this.eBuyDataSet.Items);
+
+
+            //implemented for loop for the sake of my senity (something had gone wrong and I thought it would save it. It didn't :<)
+            int i = 0, j = 0;
+            while(true)
+            {
+                if (j == creatorsDataGridView.Rows.Count-1)
+                    goto a;
+                creatorIDComboBox.Items.Add(creatorsDataGridView.Rows[j].Cells[0].Value);
+                j++;
+            }
+            a:
+            while (true)
+            {
+                if (i == categoriesDataGridView.Rows.Count-1)
+                    goto b;
+                categoryComboBox.Items.Add(categoriesDataGridView.Rows[i].Cells[0].Value);
+                i++;
+            }
+            b:
+            for (int k = 0; k < importersDataGridView.Rows.Count-1; k++)
+                importIDComboBox.Items.Add(importersDataGridView.Rows[k].Cells[0].Value);
+            //trying to show the name but have ID as Value, ask Inna 
+
+            itemNameTextBox.KeyPress += Helper.CheckNameWord;
+            itemDiscriptionTextBox.KeyPress += Helper.CheckNameNumberWord;
+            itemCostTextBox.KeyPress += Helper.CheckNumber;
+            itemQuantityTextBox.KeyPress += Helper.CheckNumber;
 
         }
 

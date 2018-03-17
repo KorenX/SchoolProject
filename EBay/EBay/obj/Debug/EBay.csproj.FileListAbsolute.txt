@@ -42,3 +42,8 @@ G:\EBay\EBay\obj\Debug\EBay.Items.resources
 G:\EBay\EBay\obj\Debug\EBay.Processes.resources
 G:\EBay\EBay\obj\Debug\EBay.Properties.Resources.resources
 G:\EBay\EBay\obj\Debug\EBay.csproj.GenerateResource.Cache
+F:\EBay\EBay\obj\Debug\EBay.Importers.resources
+F:\EBay\EBay\obj\Debug\EBay.Branches.resources
+F:\EBay\EBay\obj\Debug\EBay.Category.resources
+F:\EBay\EBay\obj\Debug\EBay.Countries.resources
+F:\EBay\EBay\obj\Debug\EBay.Deals.resources
