@@ -30,6 +30,8 @@ namespace EBay
 
         private void Deals_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'eBuyDataSet.Senders' table. You can move, or remove it, as needed.
+            this.sendersTableAdapter.Fill(this.eBuyDataSet.Senders);
             // TODO: This line of code loads data into the 'eBuyDataSet.Items' table. You can move, or remove it, as needed.
             this.itemsTableAdapter.Fill(this.eBuyDataSet.Items);
             // TODO: This line of code loads data into the 'eBuyDataSet.Branches' table. You can move, or remove it, as needed.
@@ -47,8 +49,11 @@ namespace EBay
                 dealBranchIDComboBox.Items.Add(branchesDataGridView.Rows[k].Cells[0].Value);
             for (int k = 0; k < itemsDataGridView.Rows.Count - 1; k++)
                 itemIDComboBox.Items.Add(itemsDataGridView.Rows[k].Cells[0].Value);
+            for (int k = 0; k < sendersDataGridView.Rows.Count - 1; k++)
+                senderIDComboBox.Items.Add(sendersDataGridView.Rows[k].Cells[0].Value);
 
             itemAmountTextBox.KeyPress += Helper.CheckNumber;
+            itemAmountSentTextBox.KeyPress += Helper.CheckNumber;
             Toggle();
         }
 
@@ -59,6 +64,7 @@ namespace EBay
             //dealIDTextBox1.Enabled = toggle;
             itemIDComboBox.Enabled = toggle;
             itemAmountTextBox.Enabled = toggle;
+            itemAmountSentTextBox.Enabled = toggle;
             button9.Enabled = toggle;
             button10.Enabled = toggle;
             button11.Enabled = toggle;
@@ -73,6 +79,9 @@ namespace EBay
             dealIDTextBox.Enabled = !toggle;
             dealBranchIDComboBox.Enabled = !toggle;
             dealBuyerIDComboBox.Enabled = !toggle;
+            senderIDComboBox.Enabled = !toggle;
+            dealSentCheckBox.Enabled = !toggle;
+            sentDateDateTimePicker.Enabled = !toggle;
             //dealDateDateTimePicker.Enabled = !toggle;
             dealPayedCheckBox.Enabled = !toggle;
             button7.Enabled = !toggle;
@@ -86,7 +95,7 @@ namespace EBay
 
             button17.Text = toggle ? "ערוך עסקה" : "ערוך מוצרים של העסקה";
 
-            DataView dv = (DataView)dealItemsDataGridView.DataSource;
+            DataView dv = new DataView(this.eBuyDataSet.DealItems);
             dv.RowFilter = "DealId = " + dealIDTextBox.Text ;
             dealItemsDataGridView.DataSource = dv;
 
@@ -123,8 +132,11 @@ namespace EBay
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (dealDateDateTimePicker.Value < DateTime.Now)
+            if (sentDateDateTimePicker.Value < dealDateDateTimePicker.Value)
+            {
+                MessageBox.Show("can't send before deal is made");
                 return;
+            }
             dealBindingSource.EndEdit();
             dealTableAdapter.Update(this.eBuyDataSet.Deal);
             button8.Enabled = false;
@@ -132,7 +144,11 @@ namespace EBay
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
+            if (sentDateDateTimePicker.Value < dealDateDateTimePicker.Value)
+            {
+                MessageBox.Show("can't send before deal is made");
+                return;
+            }
             dealBindingSource.EndEdit();
             dealTableAdapter.Update(this.eBuyDataSet.Deal);
             button8.Enabled = false;
@@ -141,9 +157,92 @@ namespace EBay
         private void button8_Click(object sender, EventArgs e)
         {
             dealDateDateTimePicker.Value = DateTime.Now;
+            sentDateDateTimePicker.Value = DateTime.Now;
+            
         }
 
         private void button17_Click(object sender, EventArgs e) => Toggle();
 
+        private void button16_Click(object sender, EventArgs e)
+        {
+            dealItemsBindingSource.MoveFirst();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            dealItemsBindingSource.MoveNext();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            dealItemsBindingSource.MovePrevious();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            dealItemsBindingSource.MoveLast();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            dealItemsBindingSource.AddNew();
+            button9.Enabled = true;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(itemAmountSentTextBox.Text) > int.Parse(itemAmountTextBox.Text))
+                {
+                    MessageBox.Show("can't send more than what he paid for.");
+                    return;
+                }
+                dealItemsBindingSource.EndEdit();
+                dealItemsTableAdapter.Update(this.eBuyDataSet.DealItems);
+                button8.Enabled = false;
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("must fill all textboxes");
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("something went terribly wrong");
+                return;
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(itemAmountSentTextBox.Text) > int.Parse(itemAmountTextBox.Text))
+                {
+                    MessageBox.Show("can't send more than what he paid for.");
+                    return;
+                }
+                dealItemsBindingSource.EndEdit();
+                dealItemsTableAdapter.Update(this.eBuyDataSet.DealItems);
+                button8.Enabled = false;
+            }
+            catch(FormatException ex)
+            {
+                MessageBox.Show("must fill all textboxes");
+                return;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("something went terribly wrong");
+                return;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            itemAmountTextBox.Text = "";
+            itemAmountSentTextBox.Text = "";
+        }
     }
 }
