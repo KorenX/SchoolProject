@@ -114,6 +114,12 @@
     <Compile Include="ImportProcess.Designer.cs">
       <DependentUpon>ImportProcess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Imports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Imports.Designer.cs">
+      <DependentUpon>Imports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Senders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Senders.Designer.cs">
+      <DependentUpon>Senders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SendProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendProcess.Designer.cs">
+      <DependentUpon>SendProcess.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Branches.resx">
       <DependentUpon>Branches.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,6 +176,9 @@
     <EmbeddedResource Include="ImportProcess.resx">
       <DependentUpon>ImportProcess.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Imports.resx">
+      <DependentUpon>Imports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Items.resx">
       <DependentUpon>Items.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +194,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Senders.resx">
+      <DependentUpon>Senders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendProcess.resx">
+      <DependentUpon>SendProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EBuyDataSet.xsc">
       <DependentUpon>EBuyDataSet.xsd</DependentUpon>
     </None>

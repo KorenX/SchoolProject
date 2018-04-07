@@ -74,9 +74,9 @@ namespace EBay
             button15.Enabled = toggle;
             button16.Enabled = toggle;
             dealItemsDataGridView.Visible = toggle;
-            dealIDTextBox1.Text = dealIDTextBox.Text;
+            //dealIDTextBox1.Text = dealIDTextBox.Text;
 
-            dealIDTextBox.Enabled = !toggle;
+            //dealIDTextBox.Enabled = !toggle;
             dealBranchIDComboBox.Enabled = !toggle;
             dealBuyerIDComboBox.Enabled = !toggle;
             senderIDComboBox.Enabled = !toggle;
@@ -94,6 +94,7 @@ namespace EBay
             button6.Enabled = !toggle;
 
             button17.Text = toggle ? "ערוך עסקה" : "ערוך מוצרים של העסקה";
+
 
             DataView dv = new DataView(this.eBuyDataSet.DealItems);
             dv.RowFilter = "DealId = " + dealIDTextBox.Text ;
@@ -185,7 +186,9 @@ namespace EBay
 
         private void button12_Click(object sender, EventArgs e)
         {
+            dealItemsBindingSource.MoveLast();
             dealItemsBindingSource.AddNew();
+            dealIDTextBox1.Text = dealIDTextBox.Text;
             button9.Enabled = true;
         }
 
@@ -223,9 +226,19 @@ namespace EBay
                     MessageBox.Show("can't send more than what he paid for.");
                     return;
                 }
+
+                DataView dv = new DataView(eBuyDataSet.DealItems);
+                dv.RowFilter = "ItemID=" + itemIDComboBox.SelectedItem + " AND DealID=" + dealIDTextBox1.Text;
+                dataGridView1.DataSource = dv;
+                if (dataGridView1.Rows.Count > 1)
+                {
+                    MessageBox.Show("ItemID and DealID combination already exists");
+                    return;
+                }
                 dealItemsBindingSource.EndEdit();
                 dealItemsTableAdapter.Update(this.eBuyDataSet.DealItems);
                 button8.Enabled = false;
+
             }
             catch(FormatException ex)
             {
@@ -234,7 +247,7 @@ namespace EBay
             }
             catch(Exception ex)
             {
-                MessageBox.Show("something went terribly wrong");
+                MessageBox.Show("something went terribly wrong" + ex.Message);
                 return;
             }
         }
@@ -243,6 +256,29 @@ namespace EBay
         {
             itemAmountTextBox.Text = "";
             itemAmountSentTextBox.Text = "";
+        }
+
+        private void itemIDComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(eBuyDataSet.Items);
+            dv.RowFilter = "ItemID="+itemIDComboBox.SelectedItem.ToString();
+            itemsDataGridView1.DataSource = dv;
+            foreach(DataGridViewRow dr in itemsDataGridView1.Rows)
+            {
+                try
+                {
+                    label1.Text = dr.Cells[1].Value.ToString();
+                }
+                catch(Exception ex)
+                {
+
+                }
+            }
+        }
+
+        private void dealDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

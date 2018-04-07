@@ -20,5 +20,8 @@ namespace EBay
         private void button1_Click(object sender, EventArgs e) => new BuyProcess().ShowDialog();
 
         private void button2_Click(object sender, EventArgs e) => new ImportProcess().ShowDialog();
+
+        private void button3_Click(object sender, EventArgs e) => new SendProcess().ShowDialog();
+        
     }
 }

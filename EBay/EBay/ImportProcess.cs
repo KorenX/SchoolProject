@@ -30,7 +30,9 @@ namespace EBay
         {
             // TODO: This line of code loads data into the 'eBuyDataSet.Items' table. You can move, or remove it, as needed.
             this.itemsTableAdapter.Fill(this.eBuyDataSet.Items);
+
             
+
             for (int i = 0; i < itemsDataGridView.Rows.Count - 1; i++)
             {
                 int a = int.Parse(itemsDataGridView.Rows[i].Cells[9].Value.ToString());
@@ -60,16 +62,23 @@ namespace EBay
             e.Graphics.DrawLine(p, new Point(150, 150), new Point(575, 150));
 
             int i = 300;
+            e.Graphics.DrawString("מוצר", new Font("Ariel", 24, FontStyle.Regular), Brushes.Black,
+                    new Point(150, i));
+
+            e.Graphics.DrawString("מחסור", new Font("Ariel", 24, FontStyle.Regular), Brushes.Black,
+                new Point(450, i));
+
+            i += 200;
             p = new Pen(Brushes.Black, 1.5f);
-            foreach (KeyValuePair<string,int> it in items)
+            foreach (KeyValuePair<string, int> it in items)
             {
                 e.Graphics.DrawString(it.Key, new Font("Ariel", 24, FontStyle.Regular), Brushes.Black,
                     new Point(150, i));
 
-                e.Graphics.DrawString(it.Value.ToString(), new Font("Ariel",24,FontStyle.Regular), Brushes.Black, 
-                    new Point(450,i));
+                e.Graphics.DrawString(it.Value.ToString(), new Font("Ariel", 24, FontStyle.Regular), Brushes.Black,
+                    new Point(450, i));
 
-                e.Graphics.DrawLine(p, new Point(150, i+50), new Point(575, i+50));
+                e.Graphics.DrawLine(p, new Point(150, i + 50), new Point(575, i + 50));
                 i += 100;
             }
         }
@@ -77,6 +86,7 @@ namespace EBay
         private void button2_Click(object sender, EventArgs e) => new Items().ShowDialog();
 
         private void button3_Click(object sender, EventArgs e) => new Importers().ShowDialog();
-        
+
+        private void button4_Click(object sender, EventArgs e) => new Imports().ShowDialog();
     }
 }

@@ -54,12 +54,16 @@ namespace EBay
                 if (i == categoriesDataGridView.Rows.Count-1)
                     goto b;
                 categoryComboBox.Items.Add(categoriesDataGridView.Rows[i].Cells[0].Value);
+                
                 i++;
             }
             b:
             for (int k = 0; k < importersDataGridView.Rows.Count-1; k++)
                 importIDComboBox.Items.Add(importersDataGridView.Rows[k].Cells[0].Value);
             //trying to show the name but have ID as Value, ask Inna 
+
+            foreach (object n in categoryComboBox.Items)
+                comboBox1.Items.Add(n);
 
             itemNameTextBox.KeyPress += Helper.CheckNameWord;
             itemDiscriptionTextBox.KeyPress += Helper.CheckNameNumberWord;
@@ -142,14 +146,18 @@ namespace EBay
         {
             itemsDataGridView.DataSource = new DataView(this.eBuyDataSet.Items);
             textBox1.Text = "";
-            textBox2.Text = "";
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
             DataView dv = new DataView(this.eBuyDataSet.Items);
-            dv.RowFilter = "Category Like '%" + textBox2.Text + "%'";
+            dv.RowFilter = "Category Like '%" + comboBox1.SelectedText + "%'";
             itemsDataGridView.DataSource = dv;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

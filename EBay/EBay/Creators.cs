@@ -32,6 +32,8 @@ namespace EBay
             // TODO: This line of code loads data into the 'eBuyDataSet.Creators' table. You can move, or remove it, as needed.
             this.creatorsTableAdapter.Fill(this.eBuyDataSet.Creators);
 
+            creatorNameTextBox.KeyPress += Helper.CheckNameWord;
+
             for (int i = 0; i < countriesDataGridView.Rows.Count; i++)
                 creatorCountryComboBox.Items.Add(countriesDataGridView.Rows[i].Cells[0].Value);
         }

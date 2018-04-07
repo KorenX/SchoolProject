@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label dealIDLabel;
             System.Windows.Forms.Label dealDateLabel;
-            System.Windows.Forms.Label dealBuyerIDLabel;
-            System.Windows.Forms.Label dealBranchIDLabel;
             System.Windows.Forms.Label dealPayedLabel;
             System.Windows.Forms.Label dealBuyerIDLabel1;
             System.Windows.Forms.Label dealBranchIDLabel1;
@@ -44,7 +42,17 @@
             System.Windows.Forms.Label sentDateLabel;
             System.Windows.Forms.Label itemAmountSentLabel;
             this.dealDataGridView = new System.Windows.Forms.DataGridView();
-            this.dealItemsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dealIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealBuyerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealBranchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealPayedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.senderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dealSentDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dealBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eBuyDataSet = new EBay.EBuyDataSet();
+            this.dealItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -55,13 +63,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dealIDTextBox = new System.Windows.Forms.TextBox();
             this.dealDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dealBuyerIDTextBox = new System.Windows.Forms.TextBox();
-            this.dealBranchIDTextBox = new System.Windows.Forms.TextBox();
             this.dealPayedCheckBox = new System.Windows.Forms.CheckBox();
             this.dealBuyerIDComboBox = new System.Windows.Forms.ComboBox();
             this.dealBranchIDComboBox = new System.Windows.Forms.ComboBox();
             this.buyersDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buyersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.branchesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -75,13 +93,6 @@
             this.itemAmountTextBox = new System.Windows.Forms.TextBox();
             this.button17 = new System.Windows.Forms.Button();
             this.itemsDataGridView = new System.Windows.Forms.DataGridView();
-            this.senderIDComboBox = new System.Windows.Forms.ComboBox();
-            this.dealSentCheckBox = new System.Windows.Forms.CheckBox();
-            this.sentDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.itemAmountSentTextBox = new System.Windows.Forms.TextBox();
-            this.dealItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eBuyDataSet = new EBay.EBuyDataSet();
-            this.dealBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,30 +103,10 @@
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dealIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemAmountSentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealBuyerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealBranchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealPayedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.senderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sentDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dealSentDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.senderIDComboBox = new System.Windows.Forms.ComboBox();
+            this.dealSentCheckBox = new System.Windows.Forms.CheckBox();
+            this.sentDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.itemAmountSentTextBox = new System.Windows.Forms.TextBox();
             this.dealTableAdapter = new EBay.EBuyDataSetTableAdapters.DealTableAdapter();
             this.tableAdapterManager = new EBay.EBuyDataSetTableAdapters.TableAdapterManager();
             this.branchesTableAdapter = new EBay.EBuyDataSetTableAdapters.BranchesTableAdapter();
@@ -130,10 +121,26 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.itemsDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dealItemsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             dealIDLabel = new System.Windows.Forms.Label();
             dealDateLabel = new System.Windows.Forms.Label();
-            dealBuyerIDLabel = new System.Windows.Forms.Label();
-            dealBranchIDLabel = new System.Windows.Forms.Label();
             dealPayedLabel = new System.Windows.Forms.Label();
             dealBuyerIDLabel1 = new System.Windows.Forms.Label();
             dealBranchIDLabel1 = new System.Windows.Forms.Label();
@@ -145,24 +152,26 @@
             sentDateLabel = new System.Windows.Forms.Label();
             itemAmountSentLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dealDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dealItemsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buyersDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dealItemsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealItemsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buyersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sendersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sendersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealItemsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // dealIDLabel
             // 
             dealIDLabel.AutoSize = true;
-            dealIDLabel.Location = new System.Drawing.Point(9, 111);
+            dealIDLabel.Location = new System.Drawing.Point(796, 101);
             dealIDLabel.Name = "dealIDLabel";
             dealIDLabel.Size = new System.Drawing.Size(46, 13);
             dealIDLabel.TabIndex = 45;
@@ -171,36 +180,16 @@
             // dealDateLabel
             // 
             dealDateLabel.AutoSize = true;
-            dealDateLabel.Location = new System.Drawing.Point(9, 138);
+            dealDateLabel.Location = new System.Drawing.Point(796, 128);
             dealDateLabel.Name = "dealDateLabel";
             dealDateLabel.Size = new System.Drawing.Size(58, 13);
             dealDateLabel.TabIndex = 47;
             dealDateLabel.Text = "Deal Date:";
             // 
-            // dealBuyerIDLabel
-            // 
-            dealBuyerIDLabel.AutoSize = true;
-            dealBuyerIDLabel.Location = new System.Drawing.Point(225, 616);
-            dealBuyerIDLabel.Name = "dealBuyerIDLabel";
-            dealBuyerIDLabel.Size = new System.Drawing.Size(76, 13);
-            dealBuyerIDLabel.TabIndex = 49;
-            dealBuyerIDLabel.Text = "Deal Buyer ID:";
-            dealBuyerIDLabel.Visible = false;
-            // 
-            // dealBranchIDLabel
-            // 
-            dealBranchIDLabel.AutoSize = true;
-            dealBranchIDLabel.Location = new System.Drawing.Point(225, 640);
-            dealBranchIDLabel.Name = "dealBranchIDLabel";
-            dealBranchIDLabel.Size = new System.Drawing.Size(83, 13);
-            dealBranchIDLabel.TabIndex = 51;
-            dealBranchIDLabel.Text = "Deal Branch ID:";
-            dealBranchIDLabel.Visible = false;
-            // 
             // dealPayedLabel
             // 
             dealPayedLabel.AutoSize = true;
-            dealPayedLabel.Location = new System.Drawing.Point(9, 217);
+            dealPayedLabel.Location = new System.Drawing.Point(796, 207);
             dealPayedLabel.Name = "dealPayedLabel";
             dealPayedLabel.Size = new System.Drawing.Size(65, 13);
             dealPayedLabel.TabIndex = 53;
@@ -209,7 +198,7 @@
             // dealBuyerIDLabel1
             // 
             dealBuyerIDLabel1.AutoSize = true;
-            dealBuyerIDLabel1.Location = new System.Drawing.Point(9, 164);
+            dealBuyerIDLabel1.Location = new System.Drawing.Point(796, 154);
             dealBuyerIDLabel1.Name = "dealBuyerIDLabel1";
             dealBuyerIDLabel1.Size = new System.Drawing.Size(76, 13);
             dealBuyerIDLabel1.TabIndex = 54;
@@ -218,7 +207,7 @@
             // dealBranchIDLabel1
             // 
             dealBranchIDLabel1.AutoSize = true;
-            dealBranchIDLabel1.Location = new System.Drawing.Point(9, 188);
+            dealBranchIDLabel1.Location = new System.Drawing.Point(796, 178);
             dealBranchIDLabel1.Name = "dealBranchIDLabel1";
             dealBranchIDLabel1.Size = new System.Drawing.Size(83, 13);
             dealBranchIDLabel1.TabIndex = 55;
@@ -251,6 +240,42 @@
             itemAmountLabel.TabIndex = 68;
             itemAmountLabel.Text = "Item Amount:";
             // 
+            // senderIDLabel
+            // 
+            senderIDLabel.AutoSize = true;
+            senderIDLabel.Location = new System.Drawing.Point(796, 234);
+            senderIDLabel.Name = "senderIDLabel";
+            senderIDLabel.Size = new System.Drawing.Size(58, 13);
+            senderIDLabel.TabIndex = 70;
+            senderIDLabel.Text = "Sender ID:";
+            // 
+            // dealSentLabel
+            // 
+            dealSentLabel.AutoSize = true;
+            dealSentLabel.Location = new System.Drawing.Point(796, 255);
+            dealSentLabel.Name = "dealSentLabel";
+            dealSentLabel.Size = new System.Drawing.Size(57, 13);
+            dealSentLabel.TabIndex = 71;
+            dealSentLabel.Text = "Deal Sent:";
+            // 
+            // sentDateLabel
+            // 
+            sentDateLabel.AutoSize = true;
+            sentDateLabel.Location = new System.Drawing.Point(799, 277);
+            sentDateLabel.Name = "sentDateLabel";
+            sentDateLabel.Size = new System.Drawing.Size(58, 13);
+            sentDateLabel.TabIndex = 72;
+            sentDateLabel.Text = "Sent Date:";
+            // 
+            // itemAmountSentLabel
+            // 
+            itemAmountSentLabel.AutoSize = true;
+            itemAmountSentLabel.Location = new System.Drawing.Point(829, 543);
+            itemAmountSentLabel.Name = "itemAmountSentLabel";
+            itemAmountSentLabel.Size = new System.Drawing.Size(94, 13);
+            itemAmountSentLabel.TabIndex = 73;
+            itemAmountSentLabel.Text = "Item Amount Sent:";
+            // 
             // dealDataGridView
             // 
             this.dealDataGridView.AutoGenerateColumns = false;
@@ -265,30 +290,79 @@
             this.sentDateDataGridViewTextBoxColumn,
             this.dealSentDataGridViewCheckBoxColumn});
             this.dealDataGridView.DataSource = this.dealBindingSource;
-            this.dealDataGridView.Location = new System.Drawing.Point(-42, 329);
+            this.dealDataGridView.Location = new System.Drawing.Point(-38, 98);
             this.dealDataGridView.Name = "dealDataGridView";
-            this.dealDataGridView.Size = new System.Drawing.Size(865, 233);
+            this.dealDataGridView.Size = new System.Drawing.Size(828, 233);
             this.dealDataGridView.TabIndex = 1;
+            this.dealDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dealDataGridView_CellContentClick);
             // 
-            // dealItemsDataGridView
+            // dealIDDataGridViewTextBoxColumn
             // 
-            this.dealItemsDataGridView.AutoGenerateColumns = false;
-            this.dealItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dealItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dealIDDataGridViewTextBoxColumn1,
-            this.itemIDDataGridViewTextBoxColumn,
-            this.itemAmountDataGridViewTextBoxColumn,
-            this.itemAmountSentDataGridViewTextBoxColumn});
-            this.dealItemsDataGridView.DataSource = this.dealItemsBindingSource;
-            this.dealItemsDataGridView.Location = new System.Drawing.Point(736, 598);
-            this.dealItemsDataGridView.Name = "dealItemsDataGridView";
-            this.dealItemsDataGridView.Size = new System.Drawing.Size(500, 282);
-            this.dealItemsDataGridView.TabIndex = 1;
+            this.dealIDDataGridViewTextBoxColumn.DataPropertyName = "DealID";
+            this.dealIDDataGridViewTextBoxColumn.HeaderText = "DealID";
+            this.dealIDDataGridViewTextBoxColumn.Name = "dealIDDataGridViewTextBoxColumn";
+            // 
+            // dealDateDataGridViewTextBoxColumn
+            // 
+            this.dealDateDataGridViewTextBoxColumn.DataPropertyName = "DealDate";
+            this.dealDateDataGridViewTextBoxColumn.HeaderText = "DealDate";
+            this.dealDateDataGridViewTextBoxColumn.Name = "dealDateDataGridViewTextBoxColumn";
+            // 
+            // dealBuyerIDDataGridViewTextBoxColumn
+            // 
+            this.dealBuyerIDDataGridViewTextBoxColumn.DataPropertyName = "DealBuyerID";
+            this.dealBuyerIDDataGridViewTextBoxColumn.HeaderText = "DealBuyerID";
+            this.dealBuyerIDDataGridViewTextBoxColumn.Name = "dealBuyerIDDataGridViewTextBoxColumn";
+            // 
+            // dealBranchIDDataGridViewTextBoxColumn
+            // 
+            this.dealBranchIDDataGridViewTextBoxColumn.DataPropertyName = "DealBranchID";
+            this.dealBranchIDDataGridViewTextBoxColumn.HeaderText = "DealBranchID";
+            this.dealBranchIDDataGridViewTextBoxColumn.Name = "dealBranchIDDataGridViewTextBoxColumn";
+            // 
+            // dealPayedDataGridViewCheckBoxColumn
+            // 
+            this.dealPayedDataGridViewCheckBoxColumn.DataPropertyName = "DealPayed";
+            this.dealPayedDataGridViewCheckBoxColumn.HeaderText = "DealPayed";
+            this.dealPayedDataGridViewCheckBoxColumn.Name = "dealPayedDataGridViewCheckBoxColumn";
+            // 
+            // senderIDDataGridViewTextBoxColumn
+            // 
+            this.senderIDDataGridViewTextBoxColumn.DataPropertyName = "SenderID";
+            this.senderIDDataGridViewTextBoxColumn.HeaderText = "SenderID";
+            this.senderIDDataGridViewTextBoxColumn.Name = "senderIDDataGridViewTextBoxColumn";
+            // 
+            // sentDateDataGridViewTextBoxColumn
+            // 
+            this.sentDateDataGridViewTextBoxColumn.DataPropertyName = "SentDate";
+            this.sentDateDataGridViewTextBoxColumn.HeaderText = "SentDate";
+            this.sentDateDataGridViewTextBoxColumn.Name = "sentDateDataGridViewTextBoxColumn";
+            // 
+            // dealSentDataGridViewCheckBoxColumn
+            // 
+            this.dealSentDataGridViewCheckBoxColumn.DataPropertyName = "DealSent";
+            this.dealSentDataGridViewCheckBoxColumn.HeaderText = "DealSent";
+            this.dealSentDataGridViewCheckBoxColumn.Name = "dealSentDataGridViewCheckBoxColumn";
+            // 
+            // dealBindingSource
+            // 
+            this.dealBindingSource.DataMember = "Deal";
+            this.dealBindingSource.DataSource = this.eBuyDataSet;
+            // 
+            // eBuyDataSet
+            // 
+            this.eBuyDataSet.DataSetName = "EBuyDataSet";
+            this.eBuyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dealItemsBindingSource
+            // 
+            this.dealItemsBindingSource.DataMember = "DealItems";
+            this.dealItemsBindingSource.DataSource = this.eBuyDataSet;
             // 
             // button8
             // 
             this.button8.Enabled = false;
-            this.button8.Location = new System.Drawing.Point(388, 196);
+            this.button8.Location = new System.Drawing.Point(1175, 186);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 45;
@@ -298,7 +372,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(307, 196);
+            this.button7.Location = new System.Drawing.Point(1094, 186);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 44;
@@ -308,7 +382,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(388, 167);
+            this.button6.Location = new System.Drawing.Point(1175, 157);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 43;
@@ -318,7 +392,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(307, 167);
+            this.button5.Location = new System.Drawing.Point(1094, 157);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 42;
@@ -328,7 +402,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(388, 138);
+            this.button4.Location = new System.Drawing.Point(1175, 128);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 41;
@@ -338,7 +412,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(307, 138);
+            this.button3.Location = new System.Drawing.Point(1094, 128);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 40;
@@ -348,7 +422,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(388, 109);
+            this.button2.Location = new System.Drawing.Point(1175, 99);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 39;
@@ -358,7 +432,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(307, 109);
+            this.button1.Location = new System.Drawing.Point(1094, 99);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 38;
@@ -370,7 +444,7 @@
             // 
             this.dealIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "DealID", true));
             this.dealIDTextBox.Enabled = false;
-            this.dealIDTextBox.Location = new System.Drawing.Point(98, 108);
+            this.dealIDTextBox.Location = new System.Drawing.Point(885, 98);
             this.dealIDTextBox.Name = "dealIDTextBox";
             this.dealIDTextBox.Size = new System.Drawing.Size(200, 20);
             this.dealIDTextBox.TabIndex = 46;
@@ -380,34 +454,16 @@
             this.dealDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dealBindingSource, "DealDate", true));
             this.dealDateDateTimePicker.Enabled = false;
             this.dealDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dealDateDateTimePicker.Location = new System.Drawing.Point(98, 134);
+            this.dealDateDateTimePicker.Location = new System.Drawing.Point(885, 124);
             this.dealDateDateTimePicker.Name = "dealDateDateTimePicker";
             this.dealDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dealDateDateTimePicker.TabIndex = 48;
             this.dealDateDateTimePicker.Value = new System.DateTime(2018, 3, 13, 14, 23, 0, 0);
             // 
-            // dealBuyerIDTextBox
-            // 
-            this.dealBuyerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "DealBuyerID", true));
-            this.dealBuyerIDTextBox.Location = new System.Drawing.Point(314, 613);
-            this.dealBuyerIDTextBox.Name = "dealBuyerIDTextBox";
-            this.dealBuyerIDTextBox.Size = new System.Drawing.Size(200, 20);
-            this.dealBuyerIDTextBox.TabIndex = 50;
-            this.dealBuyerIDTextBox.Visible = false;
-            // 
-            // dealBranchIDTextBox
-            // 
-            this.dealBranchIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "DealBranchID", true));
-            this.dealBranchIDTextBox.Location = new System.Drawing.Point(314, 637);
-            this.dealBranchIDTextBox.Name = "dealBranchIDTextBox";
-            this.dealBranchIDTextBox.Size = new System.Drawing.Size(200, 20);
-            this.dealBranchIDTextBox.TabIndex = 52;
-            this.dealBranchIDTextBox.Visible = false;
-            // 
             // dealPayedCheckBox
             // 
             this.dealPayedCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.dealBindingSource, "DealPayed", true));
-            this.dealPayedCheckBox.Location = new System.Drawing.Point(101, 212);
+            this.dealPayedCheckBox.Location = new System.Drawing.Point(888, 202);
             this.dealPayedCheckBox.Name = "dealPayedCheckBox";
             this.dealPayedCheckBox.Size = new System.Drawing.Size(200, 24);
             this.dealPayedCheckBox.TabIndex = 54;
@@ -417,7 +473,7 @@
             // 
             this.dealBuyerIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "DealBuyerID", true));
             this.dealBuyerIDComboBox.FormattingEnabled = true;
-            this.dealBuyerIDComboBox.Location = new System.Drawing.Point(98, 161);
+            this.dealBuyerIDComboBox.Location = new System.Drawing.Point(885, 151);
             this.dealBuyerIDComboBox.Name = "dealBuyerIDComboBox";
             this.dealBuyerIDComboBox.Size = new System.Drawing.Size(121, 21);
             this.dealBuyerIDComboBox.TabIndex = 55;
@@ -426,7 +482,7 @@
             // 
             this.dealBranchIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "DealBranchID", true));
             this.dealBranchIDComboBox.FormattingEnabled = true;
-            this.dealBranchIDComboBox.Location = new System.Drawing.Point(98, 185);
+            this.dealBranchIDComboBox.Location = new System.Drawing.Point(885, 175);
             this.dealBranchIDComboBox.Name = "dealBranchIDComboBox";
             this.dealBranchIDComboBox.Size = new System.Drawing.Size(121, 21);
             this.dealBranchIDComboBox.TabIndex = 56;
@@ -448,6 +504,41 @@
             this.buyersDataGridView.TabIndex = 56;
             this.buyersDataGridView.Visible = false;
             // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "BuyerID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "BuyerID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "BuyerName";
+            this.dataGridViewTextBoxColumn9.HeaderText = "BuyerName";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "BuyerAddress";
+            this.dataGridViewTextBoxColumn10.HeaderText = "BuyerAddress";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "BuyerPhone";
+            this.dataGridViewTextBoxColumn11.HeaderText = "BuyerPhone";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "BuyerMail";
+            this.dataGridViewTextBoxColumn12.HeaderText = "BuyerMail";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // buyersBindingSource
+            // 
+            this.buyersBindingSource.DataMember = "Buyers";
+            this.buyersBindingSource.DataSource = this.eBuyDataSet;
+            // 
             // branchesDataGridView
             // 
             this.branchesDataGridView.AutoGenerateColumns = false;
@@ -464,6 +555,41 @@
             this.branchesDataGridView.Size = new System.Drawing.Size(300, 220);
             this.branchesDataGridView.TabIndex = 56;
             this.branchesDataGridView.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "BranchID";
+            this.dataGridViewTextBoxColumn13.HeaderText = "BranchID";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "BranchName";
+            this.dataGridViewTextBoxColumn14.HeaderText = "BranchName";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "BranchAddress";
+            this.dataGridViewTextBoxColumn15.HeaderText = "BranchAddress";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "BranchPhone";
+            this.dataGridViewTextBoxColumn16.HeaderText = "BranchPhone";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "BranchManager";
+            this.dataGridViewTextBoxColumn17.HeaderText = "BranchManager";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // branchesBindingSource
+            // 
+            this.branchesBindingSource.DataMember = "Branches";
+            this.branchesBindingSource.DataSource = this.eBuyDataSet;
             // 
             // button9
             // 
@@ -563,6 +689,7 @@
             this.itemIDComboBox.Name = "itemIDComboBox";
             this.itemIDComboBox.Size = new System.Drawing.Size(121, 21);
             this.itemIDComboBox.TabIndex = 67;
+            this.itemIDComboBox.SelectedIndexChanged += new System.EventHandler(this.itemIDComboBox_SelectedIndexChanged);
             // 
             // itemAmountTextBox
             // 
@@ -597,97 +724,11 @@
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26});
             this.itemsDataGridView.DataSource = this.itemsBindingSource;
-            this.itemsDataGridView.Location = new System.Drawing.Point(834, -66);
+            this.itemsDataGridView.Location = new System.Drawing.Point(873, -212);
             this.itemsDataGridView.Name = "itemsDataGridView";
             this.itemsDataGridView.Size = new System.Drawing.Size(300, 220);
             this.itemsDataGridView.TabIndex = 70;
             this.itemsDataGridView.Visible = false;
-            // 
-            // senderIDLabel
-            // 
-            senderIDLabel.AutoSize = true;
-            senderIDLabel.Location = new System.Drawing.Point(9, 244);
-            senderIDLabel.Name = "senderIDLabel";
-            senderIDLabel.Size = new System.Drawing.Size(58, 13);
-            senderIDLabel.TabIndex = 70;
-            senderIDLabel.Text = "Sender ID:";
-            // 
-            // senderIDComboBox
-            // 
-            this.senderIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "SenderID", true));
-            this.senderIDComboBox.FormattingEnabled = true;
-            this.senderIDComboBox.Location = new System.Drawing.Point(98, 236);
-            this.senderIDComboBox.Name = "senderIDComboBox";
-            this.senderIDComboBox.Size = new System.Drawing.Size(121, 21);
-            this.senderIDComboBox.TabIndex = 71;
-            // 
-            // dealSentLabel
-            // 
-            dealSentLabel.AutoSize = true;
-            dealSentLabel.Location = new System.Drawing.Point(9, 265);
-            dealSentLabel.Name = "dealSentLabel";
-            dealSentLabel.Size = new System.Drawing.Size(57, 13);
-            dealSentLabel.TabIndex = 71;
-            dealSentLabel.Text = "Deal Sent:";
-            // 
-            // dealSentCheckBox
-            // 
-            this.dealSentCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.dealBindingSource, "DealSent", true));
-            this.dealSentCheckBox.Location = new System.Drawing.Point(98, 260);
-            this.dealSentCheckBox.Name = "dealSentCheckBox";
-            this.dealSentCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.dealSentCheckBox.TabIndex = 72;
-            this.dealSentCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // sentDateLabel
-            // 
-            sentDateLabel.AutoSize = true;
-            sentDateLabel.Location = new System.Drawing.Point(12, 287);
-            sentDateLabel.Name = "sentDateLabel";
-            sentDateLabel.Size = new System.Drawing.Size(58, 13);
-            sentDateLabel.TabIndex = 72;
-            sentDateLabel.Text = "Sent Date:";
-            // 
-            // sentDateDateTimePicker
-            // 
-            this.sentDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dealBindingSource, "SentDate", true));
-            this.sentDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.sentDateDateTimePicker.Location = new System.Drawing.Point(98, 281);
-            this.sentDateDateTimePicker.Name = "sentDateDateTimePicker";
-            this.sentDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.sentDateDateTimePicker.TabIndex = 73;
-            // 
-            // itemAmountSentLabel
-            // 
-            itemAmountSentLabel.AutoSize = true;
-            itemAmountSentLabel.Location = new System.Drawing.Point(829, 543);
-            itemAmountSentLabel.Name = "itemAmountSentLabel";
-            itemAmountSentLabel.Size = new System.Drawing.Size(94, 13);
-            itemAmountSentLabel.TabIndex = 73;
-            itemAmountSentLabel.Text = "Item Amount Sent:";
-            // 
-            // itemAmountSentTextBox
-            // 
-            this.itemAmountSentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealItemsBindingSource, "ItemAmountSent", true));
-            this.itemAmountSentTextBox.Location = new System.Drawing.Point(938, 538);
-            this.itemAmountSentTextBox.Name = "itemAmountSentTextBox";
-            this.itemAmountSentTextBox.Size = new System.Drawing.Size(121, 20);
-            this.itemAmountSentTextBox.TabIndex = 74;
-            // 
-            // dealItemsBindingSource
-            // 
-            this.dealItemsBindingSource.DataMember = "DealItems";
-            this.dealItemsBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // eBuyDataSet
-            // 
-            this.eBuyDataSet.DataSetName = "EBuyDataSet";
-            this.eBuyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dealBindingSource
-            // 
-            this.dealBindingSource.DataMember = "Deal";
-            this.dealBindingSource.DataSource = this.eBuyDataSet;
             // 
             // dataGridViewTextBoxColumn18
             // 
@@ -748,147 +789,40 @@
             this.itemsBindingSource.DataMember = "Items";
             this.itemsBindingSource.DataSource = this.eBuyDataSet;
             // 
-            // dataGridViewTextBoxColumn13
+            // senderIDComboBox
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "BranchID";
-            this.dataGridViewTextBoxColumn13.HeaderText = "BranchID";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.senderIDComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealBindingSource, "SenderID", true));
+            this.senderIDComboBox.FormattingEnabled = true;
+            this.senderIDComboBox.Location = new System.Drawing.Point(885, 226);
+            this.senderIDComboBox.Name = "senderIDComboBox";
+            this.senderIDComboBox.Size = new System.Drawing.Size(121, 21);
+            this.senderIDComboBox.TabIndex = 71;
             // 
-            // dataGridViewTextBoxColumn14
+            // dealSentCheckBox
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "BranchName";
-            this.dataGridViewTextBoxColumn14.HeaderText = "BranchName";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dealSentCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.dealBindingSource, "DealSent", true));
+            this.dealSentCheckBox.Location = new System.Drawing.Point(885, 250);
+            this.dealSentCheckBox.Name = "dealSentCheckBox";
+            this.dealSentCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.dealSentCheckBox.TabIndex = 72;
+            this.dealSentCheckBox.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // sentDateDateTimePicker
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "BranchAddress";
-            this.dataGridViewTextBoxColumn15.HeaderText = "BranchAddress";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.sentDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dealBindingSource, "SentDate", true));
+            this.sentDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.sentDateDateTimePicker.Location = new System.Drawing.Point(885, 271);
+            this.sentDateDateTimePicker.Name = "sentDateDateTimePicker";
+            this.sentDateDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.sentDateDateTimePicker.TabIndex = 73;
             // 
-            // dataGridViewTextBoxColumn16
+            // itemAmountSentTextBox
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "BranchPhone";
-            this.dataGridViewTextBoxColumn16.HeaderText = "BranchPhone";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "BranchManager";
-            this.dataGridViewTextBoxColumn17.HeaderText = "BranchManager";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            // 
-            // branchesBindingSource
-            // 
-            this.branchesBindingSource.DataMember = "Branches";
-            this.branchesBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "BuyerID";
-            this.dataGridViewTextBoxColumn8.HeaderText = "BuyerID";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "BuyerName";
-            this.dataGridViewTextBoxColumn9.HeaderText = "BuyerName";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "BuyerAddress";
-            this.dataGridViewTextBoxColumn10.HeaderText = "BuyerAddress";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "BuyerPhone";
-            this.dataGridViewTextBoxColumn11.HeaderText = "BuyerPhone";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "BuyerMail";
-            this.dataGridViewTextBoxColumn12.HeaderText = "BuyerMail";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // buyersBindingSource
-            // 
-            this.buyersBindingSource.DataMember = "Buyers";
-            this.buyersBindingSource.DataSource = this.eBuyDataSet;
-            // 
-            // dealIDDataGridViewTextBoxColumn1
-            // 
-            this.dealIDDataGridViewTextBoxColumn1.DataPropertyName = "DealID";
-            this.dealIDDataGridViewTextBoxColumn1.HeaderText = "DealID";
-            this.dealIDDataGridViewTextBoxColumn1.Name = "dealIDDataGridViewTextBoxColumn1";
-            // 
-            // itemIDDataGridViewTextBoxColumn
-            // 
-            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
-            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
-            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
-            // 
-            // itemAmountDataGridViewTextBoxColumn
-            // 
-            this.itemAmountDataGridViewTextBoxColumn.DataPropertyName = "ItemAmount";
-            this.itemAmountDataGridViewTextBoxColumn.HeaderText = "ItemAmount";
-            this.itemAmountDataGridViewTextBoxColumn.Name = "itemAmountDataGridViewTextBoxColumn";
-            // 
-            // itemAmountSentDataGridViewTextBoxColumn
-            // 
-            this.itemAmountSentDataGridViewTextBoxColumn.DataPropertyName = "ItemAmountSent";
-            this.itemAmountSentDataGridViewTextBoxColumn.HeaderText = "ItemAmountSent";
-            this.itemAmountSentDataGridViewTextBoxColumn.Name = "itemAmountSentDataGridViewTextBoxColumn";
-            // 
-            // dealIDDataGridViewTextBoxColumn
-            // 
-            this.dealIDDataGridViewTextBoxColumn.DataPropertyName = "DealID";
-            this.dealIDDataGridViewTextBoxColumn.HeaderText = "DealID";
-            this.dealIDDataGridViewTextBoxColumn.Name = "dealIDDataGridViewTextBoxColumn";
-            // 
-            // dealDateDataGridViewTextBoxColumn
-            // 
-            this.dealDateDataGridViewTextBoxColumn.DataPropertyName = "DealDate";
-            this.dealDateDataGridViewTextBoxColumn.HeaderText = "DealDate";
-            this.dealDateDataGridViewTextBoxColumn.Name = "dealDateDataGridViewTextBoxColumn";
-            // 
-            // dealBuyerIDDataGridViewTextBoxColumn
-            // 
-            this.dealBuyerIDDataGridViewTextBoxColumn.DataPropertyName = "DealBuyerID";
-            this.dealBuyerIDDataGridViewTextBoxColumn.HeaderText = "DealBuyerID";
-            this.dealBuyerIDDataGridViewTextBoxColumn.Name = "dealBuyerIDDataGridViewTextBoxColumn";
-            // 
-            // dealBranchIDDataGridViewTextBoxColumn
-            // 
-            this.dealBranchIDDataGridViewTextBoxColumn.DataPropertyName = "DealBranchID";
-            this.dealBranchIDDataGridViewTextBoxColumn.HeaderText = "DealBranchID";
-            this.dealBranchIDDataGridViewTextBoxColumn.Name = "dealBranchIDDataGridViewTextBoxColumn";
-            // 
-            // dealPayedDataGridViewCheckBoxColumn
-            // 
-            this.dealPayedDataGridViewCheckBoxColumn.DataPropertyName = "DealPayed";
-            this.dealPayedDataGridViewCheckBoxColumn.HeaderText = "DealPayed";
-            this.dealPayedDataGridViewCheckBoxColumn.Name = "dealPayedDataGridViewCheckBoxColumn";
-            // 
-            // senderIDDataGridViewTextBoxColumn
-            // 
-            this.senderIDDataGridViewTextBoxColumn.DataPropertyName = "SenderID";
-            this.senderIDDataGridViewTextBoxColumn.HeaderText = "SenderID";
-            this.senderIDDataGridViewTextBoxColumn.Name = "senderIDDataGridViewTextBoxColumn";
-            // 
-            // sentDateDataGridViewTextBoxColumn
-            // 
-            this.sentDateDataGridViewTextBoxColumn.DataPropertyName = "SentDate";
-            this.sentDateDataGridViewTextBoxColumn.HeaderText = "SentDate";
-            this.sentDateDataGridViewTextBoxColumn.Name = "sentDateDataGridViewTextBoxColumn";
-            // 
-            // dealSentDataGridViewCheckBoxColumn
-            // 
-            this.dealSentDataGridViewCheckBoxColumn.DataPropertyName = "DealSent";
-            this.dealSentDataGridViewCheckBoxColumn.HeaderText = "DealSent";
-            this.dealSentDataGridViewCheckBoxColumn.Name = "dealSentDataGridViewCheckBoxColumn";
+            this.itemAmountSentTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dealItemsBindingSource, "ItemAmountSent", true));
+            this.itemAmountSentTextBox.Location = new System.Drawing.Point(938, 538);
+            this.itemAmountSentTextBox.Name = "itemAmountSentTextBox";
+            this.itemAmountSentTextBox.Size = new System.Drawing.Size(121, 20);
+            this.itemAmountSentTextBox.TabIndex = 74;
             // 
             // dealTableAdapter
             // 
@@ -905,6 +839,8 @@
             this.tableAdapterManager.DealItemsTableAdapter = this.dealItemsTableAdapter;
             this.tableAdapterManager.DealTableAdapter = this.dealTableAdapter;
             this.tableAdapterManager.ImportersTableAdapter = null;
+            this.tableAdapterManager.ImportItemsTableAdapter = null;
+            this.tableAdapterManager.ImportTableAdapter = null;
             this.tableAdapterManager.ItemsTableAdapter = null;
             this.tableAdapterManager.SendersTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = EBay.EBuyDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
@@ -945,7 +881,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
             this.sendersDataGridView.DataSource = this.sendersBindingSource;
-            this.sendersDataGridView.Location = new System.Drawing.Point(1049, 167);
+            this.sendersDataGridView.Location = new System.Drawing.Point(1252, 58);
             this.sendersDataGridView.Name = "sendersDataGridView";
             this.sendersDataGridView.Size = new System.Drawing.Size(300, 220);
             this.sendersDataGridView.TabIndex = 74;
@@ -981,12 +917,152 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "SenderMail";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(796, 487);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 75;
+            // 
+            // itemsDataGridView1
+            // 
+            this.itemsDataGridView1.AutoGenerateColumns = false;
+            this.itemsDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.itemsDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34});
+            this.itemsDataGridView1.DataSource = this.itemsBindingSource;
+            this.itemsDataGridView1.Location = new System.Drawing.Point(561, -212);
+            this.itemsDataGridView1.Name = "itemsDataGridView1";
+            this.itemsDataGridView1.Size = new System.Drawing.Size(300, 220);
+            this.itemsDataGridView1.TabIndex = 75;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ItemID";
+            this.dataGridViewTextBoxColumn6.HeaderText = "ItemID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ItemName";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ItemName";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "ItemDiscription";
+            this.dataGridViewTextBoxColumn27.HeaderText = "ItemDiscription";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "CreatorID";
+            this.dataGridViewTextBoxColumn29.HeaderText = "CreatorID";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "ImportID";
+            this.dataGridViewTextBoxColumn30.HeaderText = "ImportID";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "ItemCost";
+            this.dataGridViewTextBoxColumn31.HeaderText = "ItemCost";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.DataPropertyName = "ItemQuantity";
+            this.dataGridViewTextBoxColumn32.HeaderText = "ItemQuantity";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.DataPropertyName = "ItemPic";
+            this.dataGridViewTextBoxColumn33.HeaderText = "ItemPic";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.DataPropertyName = "ItemWanted";
+            this.dataGridViewTextBoxColumn34.HeaderText = "ItemWanted";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(139, -142);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 76;
+            // 
+            // dealItemsDataGridView
+            // 
+            this.dealItemsDataGridView.AutoGenerateColumns = false;
+            this.dealItemsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dealItemsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn36,
+            this.dataGridViewTextBoxColumn37,
+            this.dataGridViewTextBoxColumn38});
+            this.dealItemsDataGridView.DataSource = this.dealItemsBindingSource;
+            this.dealItemsDataGridView.Location = new System.Drawing.Point(79, 378);
+            this.dealItemsDataGridView.Name = "dealItemsDataGridView";
+            this.dealItemsDataGridView.Size = new System.Drawing.Size(492, 249);
+            this.dealItemsDataGridView.TabIndex = 76;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.DataPropertyName = "DealID";
+            this.dataGridViewTextBoxColumn35.HeaderText = "DealID";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.DataPropertyName = "ItemID";
+            this.dataGridViewTextBoxColumn36.HeaderText = "ItemID";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            this.dataGridViewTextBoxColumn37.DataPropertyName = "ItemAmount";
+            this.dataGridViewTextBoxColumn37.HeaderText = "ItemAmount";
+            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            this.dataGridViewTextBoxColumn38.DataPropertyName = "ItemAmountSent";
+            this.dataGridViewTextBoxColumn38.HeaderText = "ItemAmountSent";
+            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            // 
             // Deals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1276, 694);
+            this.Controls.Add(this.dealItemsDataGridView);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.itemsDataGridView1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.sendersDataGridView);
             this.Controls.Add(itemAmountSentLabel);
             this.Controls.Add(this.itemAmountSentTextBox);
@@ -1022,10 +1098,6 @@
             this.Controls.Add(this.dealIDTextBox);
             this.Controls.Add(dealDateLabel);
             this.Controls.Add(this.dealDateDateTimePicker);
-            this.Controls.Add(dealBuyerIDLabel);
-            this.Controls.Add(this.dealBuyerIDTextBox);
-            this.Controls.Add(dealBranchIDLabel);
-            this.Controls.Add(this.dealBranchIDTextBox);
             this.Controls.Add(dealPayedLabel);
             this.Controls.Add(this.dealPayedCheckBox);
             this.Controls.Add(this.button8);
@@ -1036,24 +1108,25 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dealItemsDataGridView);
             this.Controls.Add(this.dealDataGridView);
             this.Name = "Deals";
             this.Text = "Deals";
             this.Load += new System.EventHandler(this.Deals_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dealDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dealItemsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buyersDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dealItemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dealBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eBuyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealItemsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buyersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sendersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sendersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemsDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dealItemsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1068,7 +1141,6 @@
         private System.Windows.Forms.DataGridView dealDataGridView;
         private EBuyDataSetTableAdapters.DealItemsTableAdapter dealItemsTableAdapter;
         private System.Windows.Forms.BindingSource dealItemsBindingSource;
-        private System.Windows.Forms.DataGridView dealItemsDataGridView;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
@@ -1079,8 +1151,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox dealIDTextBox;
         private System.Windows.Forms.DateTimePicker dealDateDateTimePicker;
-        private System.Windows.Forms.TextBox dealBuyerIDTextBox;
-        private System.Windows.Forms.TextBox dealBranchIDTextBox;
         private System.Windows.Forms.CheckBox dealPayedCheckBox;
         private System.Windows.Forms.ComboBox dealBuyerIDComboBox;
         private System.Windows.Forms.ComboBox dealBranchIDComboBox;
@@ -1132,10 +1202,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn senderIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sentDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dealSentDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dealIDDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemAmountSentDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox senderIDComboBox;
         private System.Windows.Forms.CheckBox dealSentCheckBox;
         private System.Windows.Forms.DateTimePicker sentDateDateTimePicker;
@@ -1148,5 +1214,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView itemsDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dealItemsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
     }
 }
